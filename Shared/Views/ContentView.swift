@@ -31,6 +31,15 @@ struct ContentView: View {
                 .blendMode(.hardLight)
             CardView()
                 .blendMode(.hardLight)
+            VStack {
+                Text("This certificate is proof that Meng To has achieved the UI Design course with approval from a Design+Code instructor.")
+                Spacer()
+            }
+            .padding()
+            .background(.white)
+            .cornerRadius(30)
+            .shadow(radius: 20)
+            .offset(x: 0, y: 500)
         }
     }
 }
