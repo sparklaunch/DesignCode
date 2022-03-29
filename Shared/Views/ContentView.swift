@@ -14,10 +14,12 @@ struct ContentView: View {
                 .offset(x: 0, y: -40)
                 .scaleEffect(0.9)
                 .rotationEffect(.degrees(10))
+                .rotation3DEffect(Angle(degrees: 10), axis: (x: 10, y: 0, z: 0))
             BackCardView()
                 .offset(x: 0, y: -20)
                 .scaleEffect(0.95)
                 .rotationEffect(Angle(degrees: 5))
+                .rotation3DEffect(Angle(degrees: 5), axis: (x: 10, y: 0, z: 0))
             CardView()
         }
     }
