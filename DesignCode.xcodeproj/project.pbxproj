@@ -54,9 +54,9 @@
 		90BE731D27F13EAA00AF987C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				90BE731E27F13EAA00AF987C /* DesignCodeApp.swift */,
-				90BE731F27F13EAA00AF987C /* ContentView.swift */,
-				90BE732027F13EAB00AF987C /* Assets.xcassets */,
+				90BE739727F2993D00AF987C /* App */,
+				90BE739627F2993900AF987C /* Models */,
+				90BE739527F2993400AF987C /* Views */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -76,6 +76,30 @@
 				90BE732D27F13EAB00AF987C /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		90BE739527F2993400AF987C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				90BE731F27F13EAA00AF987C /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		90BE739627F2993900AF987C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		90BE739727F2993D00AF987C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				90BE731E27F13EAA00AF987C /* DesignCodeApp.swift */,
+				90BE732027F13EAB00AF987C /* Assets.xcassets */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
