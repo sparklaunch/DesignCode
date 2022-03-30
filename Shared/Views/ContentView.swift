@@ -44,7 +44,11 @@ struct ContentView: View {
                 }
                 .gesture(DragGesture().onChanged { value in
                     self.viewState = value.translation
-                })
+                }
+                    .onEnded { value in
+                        viewState = .zero
+                    })
+                .animation(.spring(), value: viewState)
             BottomCardView()
                 .blur(radius: self.show ? 20 : 0)
                 .animation(.default, value: self.show)
