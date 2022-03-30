@@ -20,6 +20,7 @@ struct ContentView: View {
                 .cornerRadius(20)
                 .shadow(radius: 20)
                 .offset(x: 0, y: self.show ? -400 : -40)
+                .offset(x: viewState.width, y: viewState.height)
                 .scaleEffect(0.9)
                 .rotationEffect(.degrees(self.show ? 0 : 10))
                 .rotation3DEffect(Angle(degrees: 10), axis: (x: 10, y: 0, z: 0))
@@ -30,6 +31,7 @@ struct ContentView: View {
                 .cornerRadius(20)
                 .shadow(radius: 20)
                 .offset(x: 0, y: self.show ? -200 : -20)
+                .offset(x: viewState.width, y: viewState.height)
                 .scaleEffect(0.95)
                 .rotationEffect(Angle(degrees: self.show ? 0 : 5))
                 .rotation3DEffect(Angle(degrees: 5), axis: (x: 10, y: 0, z: 0))
@@ -43,12 +45,15 @@ struct ContentView: View {
                     }
                 }
                 .gesture(DragGesture().onChanged { value in
-                    self.viewState = value.translation
+                    withAnimation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: .zero)) {
+                        self.viewState = value.translation
+                    }
                 }
                     .onEnded { value in
-                        viewState = .zero
+                        withAnimation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: .zero)) {
+                            viewState = .zero
+                        }
                     })
-                .animation(.spring(), value: viewState)
             BottomCardView()
                 .blur(radius: self.show ? 20 : 0)
                 .animation(.default, value: self.show)
