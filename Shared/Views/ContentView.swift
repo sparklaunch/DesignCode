@@ -12,6 +12,7 @@ struct ContentView: View {
     @State private var viewState: CGSize = .zero
     @State private var showCard: Bool = false
     @State private var bottomState: CGSize = .zero
+    @State private var showFull: Bool = false
     var body: some View {
         ZStack {
             TitleView()
@@ -80,6 +81,12 @@ struct ContentView: View {
                     DragGesture()
                         .onChanged { value in
                             bottomState = value.translation
+                            if showFull {
+                                bottomState.height += -300
+                            }
+                            if bottomState.height < -300 {
+                                bottomState.height = -300
+                            }
                         }
                         .onEnded { value in
                             withAnimation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: .zero)) {
@@ -88,8 +95,17 @@ struct ContentView: View {
                                         showCard = false
                                     }
                                 }
+                                if (bottomState.height < -100 && !showFull) || (bottomState.height < -250 && showFull) {
+                                    withAnimation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: .zero)) {
+                                        bottomState.height = -300
+                                        showFull = true
+                                    }
+                                }
                                 else {
-                                    bottomState = .zero
+                                    withAnimation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: .zero)) {
+                                        bottomState = .zero
+                                        showFull = false
+                                    }
                                 }
                             }
                         }
