@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var show: Bool = false
-    @State private var viewState: CGSize = CGSize.zero
+    @State private var viewState: CGSize = .zero
     @State private var showCard: Bool = false
+    @State private var bottomState: CGSize = .zero
     var body: some View {
         ZStack {
             TitleView()
@@ -21,7 +22,7 @@ struct ContentView: View {
                     .delay(0.1)
                            , value: self.show)
             BackCardView()
-                .frame(width: 340, height: 220)
+                .frame(width: showCard ? 300 : 340, height: 220)
                 .background(Color(self.show ? "card3" : "card4"))
                 .cornerRadius(20)
                 .shadow(radius: 20)
@@ -31,7 +32,7 @@ struct ContentView: View {
                 .scaleEffect(showCard ? 1 : 0.9)
                 .rotationEffect(.degrees(self.show ? .zero : 10))
                 .rotationEffect(Angle(degrees: showCard ? -10 : .zero))
-                .rotation3DEffect(Angle(degrees: 10), axis: (x: 10, y: .zero, z: .zero))
+                .rotation3DEffect(Angle(degrees: showCard ? .zero : 10), axis: (x: 10, y: .zero, z: .zero))
                 .blendMode(.hardLight)
                 .animation(.easeInOut(duration: 0.5), value: self.show)
             BackCardView()
@@ -45,7 +46,7 @@ struct ContentView: View {
                 .scaleEffect(showCard ? 1 : 0.95)
                 .rotationEffect(Angle(degrees: self.show ? .zero : 5))
                 .rotationEffect(Angle(degrees: showCard ? -5 : .zero))
-                .rotation3DEffect(Angle(degrees: 5), axis: (x: 10, y: .zero, z: .zero))
+                .rotation3DEffect(Angle(degrees: showCard ? .zero : 5), axis: (x: 10, y: .zero, z: .zero))
                 .blendMode(.hardLight)
             CardView()
                 .frame(width: showCard ? 375 : 340, height: 220)
@@ -72,8 +73,27 @@ struct ContentView: View {
                     })
             BottomCardView()
                 .offset(x: .zero, y: showCard ? 360 : 1000)
+                .offset(y: bottomState.height)
                 .blur(radius: self.show ? 20 : .zero)
                 .animation(.timingCurve(0.2, 0.8, 0.2, 1.0, duration: 0.8), value: self.show)
+                .gesture(
+                    DragGesture()
+                        .onChanged { value in
+                            bottomState = value.translation
+                        }
+                        .onEnded { value in
+                            withAnimation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: .zero)) {
+                                if bottomState.height > 50 {
+                                    withAnimation(.spring(response: 0.3, dampingFraction: 0.6, blendDuration: .zero)) {
+                                        showCard = false
+                                    }
+                                }
+                                else {
+                                    bottomState = .zero
+                                }
+                            }
+                        }
+                )
         }
     }
 }
