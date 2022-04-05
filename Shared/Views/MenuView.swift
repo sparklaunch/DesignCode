@@ -9,11 +9,16 @@ import SwiftUI
 
 struct MenuView: View {
     var body: some View {
-        VStack {
+        VStack(spacing: 16) {
             MenuRow(title: "Account", icon: "gear")
             MenuRow(title: "Billing", icon: "creditcard")
             MenuRow(title: "Sign Out", icon: "person.crop.circle")
         }
+        .frame(maxWidth: .infinity)
+        .frame(height: 300)
+        .background(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
+        .shadow(radius: 30)
     }
 }
 
