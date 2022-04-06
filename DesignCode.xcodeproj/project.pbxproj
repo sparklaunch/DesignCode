@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		90763A5027FBC99E00AB956E /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90763A4F27FBC99E00AB956E /* MenuView.swift */; };
+		90763A5227FD44F900AB956E /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90763A5127FD44F800AB956E /* Home.swift */; };
 		90BE732E27F13EAB00AF987C /* DesignCodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BE731E27F13EAA00AF987C /* DesignCodeApp.swift */; };
 		90BE732F27F13EAB00AF987C /* DesignCodeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BE731E27F13EAA00AF987C /* DesignCodeApp.swift */; };
 		90BE733027F13EAB00AF987C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BE731F27F13EAA00AF987C /* ContentView.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		90763A4F27FBC99E00AB956E /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		90763A5127FD44F800AB956E /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		90BE731E27F13EAA00AF987C /* DesignCodeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignCodeApp.swift; sourceTree = "<group>"; };
 		90BE731F27F13EAA00AF987C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		90BE732027F13EAB00AF987C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				90BE731F27F13EAA00AF987C /* ContentView.swift */,
 				90763A4F27FBC99E00AB956E /* MenuView.swift */,
+				90763A5127FD44F800AB956E /* Home.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			files = (
 				90BE733027F13EAB00AF987C /* ContentView.swift in Sources */,
 				90763A5027FBC99E00AB956E /* MenuView.swift in Sources */,
+				90763A5227FD44F900AB956E /* Home.swift in Sources */,
 				90BE732E27F13EAB00AF987C /* DesignCodeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
